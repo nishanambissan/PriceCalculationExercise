@@ -2,9 +2,15 @@ namespace PriceCalculator;
 
 public class Basket
 {
-    private List<BasketProduct> Items { get; set; }
+    public List<BasketProduct> Items { get; set; } = new List<BasketProduct>();
 
     private decimal TotalCost { get; set; }
+
+    public decimal CalculateTotal()
+    {
+        new PricingCalculator().Calculate(Items);
+        return TotalCost;
+    }
 }
 
 //TODO : If I had more time, I would store discount rules collection and apply strategy pattern to apply each kind of discount
