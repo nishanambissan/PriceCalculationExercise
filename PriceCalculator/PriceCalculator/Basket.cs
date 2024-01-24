@@ -8,7 +8,7 @@ public class Basket
 
     public decimal CalculateTotal()
     {
-        new PricingCalculator().Calculate(Items);
+        TotalCost = new PricingCalculator().Calculate(Items);
         return TotalCost;
     }
 }

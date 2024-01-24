@@ -2,19 +2,21 @@ namespace PriceCalculator;
 
 public class PricingCalculator
 {
-    //ideally this would be coming in via DI
-    public PricingCalculator()
-    {
-    }
-
     public decimal Calculate(List<BasketProduct> basketProducts)
     {
-        ApplyDiscounts();
-        return 0;
+        var cost = ApplyDiscounts(basketProducts);
+        return cost;
     }
 
-    public void ApplyDiscounts()
+    public decimal ApplyDiscounts(List<BasketProduct> basketProducts)
     {
+        var cost = 0m;
         
+        foreach (var item in basketProducts)
+        {
+            cost += item.Quantity * item.UnitPrice;
+        }
+        
+        return cost;
     }
 }
