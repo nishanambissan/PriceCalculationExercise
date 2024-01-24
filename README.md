@@ -1,0 +1,2 @@
+# PriceCalculationExercise
+Coding test
